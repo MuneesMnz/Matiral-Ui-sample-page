@@ -15,7 +15,7 @@ import React from "react";
 
 const Rightbar = () => {
   return (
-    <Box flex={2} p={2}>
+    <Box flex={2} p={2} sx={{display:{xs:"none",md:"block"}}}>
       <Box position="fixed" width={400}>
         <Typography variant="h6" fontWeight={300} marginBottom={1}>
           Online Friend

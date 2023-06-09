@@ -3,6 +3,7 @@ import Feeds from "./components/Feeds";
 import Rightbar from "./components/Rightbar";
 import Sidebar from "./components/Sidebar";
 import Navbar from "./components/Navbar";
+import AddPost from "./components/AddPost";
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         <Feeds />
         <Rightbar />
       </Stack>
+      <AddPost/>
     </Box>
     // <Box>
     //   {/* <FlexAndGridsystem/> */}
