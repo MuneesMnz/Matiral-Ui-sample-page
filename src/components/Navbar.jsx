@@ -17,12 +17,6 @@ const StyledToolbar = styled(Toolbar)({
   justifyContent: "space-between",
 });
 
-const Search = styled("div")(({ theme }) => ({
-  backgroundColor: "white",
-  padding: "0 10px",
-  borderRadius: theme.shape.borderRadius,
-  width: "40%",
-}));
 const Icons = styled("Box")(({ theme }) => ({
   display: "none",
   gap: "20px",
@@ -39,8 +33,14 @@ const UserBox = styled("Box")(({ theme }) => ({
     display: "none",
   },
 }));
-const Navbar = () => {
-  const [open,setOpen]=useState(false)
+const Navbar = ({ mode }) => {
+  const Search = styled("div")(({ theme }) => ({
+    backgroundColor: mode==='dark' ? "black":"white",
+    padding: "0 10px",
+    borderRadius: theme.shape.borderRadius,
+    width: "40%",
+  }));
+  const [open, setOpen] = useState(false);
   return (
     <AppBar position="sticky">
       <StyledToolbar>
@@ -49,7 +49,11 @@ const Navbar = () => {
         </Typography>
         <Spa sx={{ display: { xs: "block", sm: "none" } }} />
         <Search>
-          <InputBase placeholder="Search..." />
+          <InputBase
+            sx={{ width: "100%" }}
+            color="red"
+            placeholder="Search..."
+          />
         </Search>
         <Icons>
           <Badge badgeContent={4} color="error">
@@ -60,15 +64,14 @@ const Navbar = () => {
           </Badge>
           <Avatar
             src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pexels.com%2Fsearch%2Fprofile%2F&psig=AOvVaw0c56vSF6vMU1OfnWRcZwjs&ust=1686312080642000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCKCslZXQs_8CFQAAAAAdAAAAABAE"
-            sx={{ width: 30, height: 30 ,cursor:"pointer"}}
-            onClick={e=>setOpen(true)}
+            sx={{ width: 30, height: 30, cursor: "pointer" }}
+            onClick={(e) => setOpen(true)}
           />
         </Icons>
-        <UserBox onClick={e=>setOpen(true)}>
+        <UserBox onClick={(e) => setOpen(true)}>
           <Avatar
             src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pexels.com%2Fsearch%2Fprofile%2F&psig=AOvVaw0c56vSF6vMU1OfnWRcZwjs&ust=1686312080642000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCKCslZXQs_8CFQAAAAAdAAAAABAE"
             sx={{ width: 30, height: 30 }}
-            
           />
           <Typography>MNZ</Typography>
         </UserBox>
@@ -77,7 +80,7 @@ const Navbar = () => {
         id="demo-positioned-menu"
         aria-labelledby="demo-positioned-button"
         open={open}
-        onClose={(e)=>setOpen(false)}
+        onClose={(e) => setOpen(false)}
         anchorOrigin={{
           vertical: "top",
           horizontal: "right",

@@ -57,14 +57,14 @@ const AddPost = () => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box width={400} height={280} bgcolor={"white"} p={3} borderRadius={4}>
+        <Box width={400} height={280} bgcolor={"background.default"} color={"text.primary"} p={3} borderRadius={4}>
           <Typography variant="h6" color={"gray"} textAlign={"center"}>
             Create post
           </Typography>
 
           <UserBox>
             <Avatar
-              sx={{ width: 30, height: 30 }}
+              sx={{ width: 40, height: 40 }}
               src="https://images.unsplash.com/photo-1491349174775-aaafddd81942?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
             />
             <Typography fontWeight={500} variant="span">
