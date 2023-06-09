@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 import { Mail, Spa, Notifications } from "@mui/icons-material";
+import { useTheme } from "../Context/ThemeContext";
 
 const StyledToolbar = styled(Toolbar)({
   display: "flex",
@@ -33,9 +34,11 @@ const UserBox = styled("Box")(({ theme }) => ({
     display: "none",
   },
 }));
-const Navbar = ({ mode }) => {
+const Navbar = () => {
+  const themes = useTheme();
+
   const Search = styled("div")(({ theme }) => ({
-    backgroundColor: mode==='dark' ? "black":"white",
+    backgroundColor: themes ? "white" : "black",
     padding: "0 10px",
     borderRadius: theme.shape.borderRadius,
     width: "40%",

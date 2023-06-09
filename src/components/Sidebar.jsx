@@ -5,7 +5,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/Inbox";
+// import InboxIcon from "@mui/icons-material/Inbox";
 import {
   AccountBox,
   Article,
@@ -16,8 +16,11 @@ import {
   Settings,
   Storefront,
 } from "@mui/icons-material";
+import {  useThemeUpdate } from "../Context/ThemeContext";
 
 const Sidebar = ({ mode, setMode }) => {
+
+  const toggleTheme=useThemeUpdate()
   return (
     <Box flex={1} sx={{display:{xs:"none",sm:"block"}}} p={2}>
       <Box position='fixed'>
@@ -84,7 +87,9 @@ const Sidebar = ({ mode, setMode }) => {
                 <ModeNight />
               </ListItemIcon>
               <Switch
-                onChange={(e) => setMode(mode === "light" ? "dark" : "light")}
+                onChange={(e) =>{
+                  toggleTheme()
+                }}
               />
             </ListItemButton>
           </ListItem>

@@ -6,20 +6,22 @@ import Navbar from "./components/Navbar";
 import AddPost from "./components/AddPost";
 import { useState } from "react";
 import { ThemeProvider } from "@emotion/react";
+import { useTheme } from "./Context/ThemeContext";
 
 const App = () => {
-  const [mode, setMode] = useState("light");
+  // const [mode, setMode] = useState("light");
+  const theme=useTheme()
   const darkTheme = createTheme({
     palette: {
-      mode: mode,
+      mode:theme?"light":'dark' ,
     },
   });
   return (
     <ThemeProvider theme={darkTheme}>
       <Box bgcolor={"background.default"} color={"text.primary"}>
-        <Navbar mode={mode} />
+        <Navbar  />
         <Stack direction="row" spacing={2} justifyContent="space-between">
-          <Sidebar setMode={setMode} mode={mode}/>
+          <Sidebar/>
           <Feeds />
           <Rightbar />
         </Stack>
